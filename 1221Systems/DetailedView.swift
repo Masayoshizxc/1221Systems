@@ -82,6 +82,7 @@ class DetailedView: BaseViewController {
         let l = UILabel()
         l.textColor = .white
         l.font = .systemFont(ofSize: 16)
+        l.text = "none"
         return l
     }()
     

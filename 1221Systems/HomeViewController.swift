@@ -73,7 +73,13 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
-//        cell.name = characters[indexPath.row].
+        getData(from: URL(string: (characters?.results?[indexPath.row].image) ?? "none")!) { data, response, error in
+            guard let data = data, error == nil else { return }
+            DispatchQueue.main.async() { [weak self] in
+                cell.image.image = UIImage(data: data)
+            }
+        }
+        cell.name.text = characters?.results?[indexPath.row].name
         return cell
     }
     
@@ -91,7 +97,22 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         return UIEdgeInsets(top: 31, left: 0, bottom: -31, right: 0)
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        coordinator?.details()
+        var image: UIImage?
+        getData(from: URL(string: (characters?.results?[indexPath.row].image) ?? "none")!) { data, response, error in
+            guard let data = data, error == nil else { return }
+            DispatchQueue.main.async() { [weak self] in
+                image = UIImage(data: data)
+            }
+        }
+        var originType: String?
+//        guard let url = URL(string: (characters?.results?[indexPath.row].origin?.url)! else { return }
+//        getData(from: URL(string: (characters?.results?[indexPath.row].origin?.url) ?? "none")!) { data, response, error in
+//            guard let data = data, error == nil else { return }
+//            DispatchQueue.main.async { [weak self] in
+//                originType = String(decoding: data, as: UTF8.self)
+//            }
+//        }
+        coordinator?.details(image: image, status: characters?.results?[indexPath.row].status ?? "none", spesies: characters?.results?[indexPath.row].species ?? "none", type: characters?.results?[indexPath.row].type ?? "none", gender: characters?.results?[indexPath.row].gender ?? "none", originName: characters?.results?[indexPath.row].origin?.name ?? "none", originType: originType ?? "none")
     }
 
 }
@@ -122,6 +143,9 @@ extension HomeViewController {
                 }
             }.resume()
         }
+    }
+    func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
     }
     
 }

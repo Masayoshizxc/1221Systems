@@ -22,12 +22,13 @@ class CollectionViewCell: UICollectionViewCell {
         let l = UILabel()
         l.font = .boldSystemFont(ofSize: 17)
         l.textColor = .white
+        l.textAlignment = .center
         return l
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.backgroundColor = .yellow
+        contentView.backgroundColor = R.color.infoView()
         contentView.layer.cornerRadius = 16
         setupSubviews()
         setupConstraints()
@@ -53,6 +54,7 @@ extension CollectionViewCell {
         name.snp.makeConstraints{make in
             make.centerX.equalToSuperview()
             make.top.equalTo(image.snp.bottom).offset(16)
+            make.width.equalToSuperview()
         }
     }
 }
