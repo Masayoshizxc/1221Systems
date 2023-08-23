@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,10 +13,35 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Back" translatesAutoresizingMaskIntoConstraints="NO" id="ABc-G1-UfS">
+                                <rect key="frame" x="16" y="157" width="351" height="597"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="nTI-5k-ulr">
+                                <rect key="frame" x="126.66666666666669" y="223" width="140" height="40"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Portal" translatesAutoresizingMaskIntoConstraints="NO" id="tDO-Iy-2O9">
+                                <rect key="frame" x="126.66666666666669" y="299" width="140" height="228"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="228" id="FXa-9h-NhR"/>
+                                    <constraint firstAttribute="width" constant="140" id="n2K-rL-ltN"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" name="Space"/>
+                        <constraints>
+                            <constraint firstItem="ABc-G1-UfS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="98" id="36g-yw-wAH"/>
+                            <constraint firstItem="tDO-Iy-2O9" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="BIU-Rd-64x"/>
+                            <constraint firstAttribute="trailing" secondItem="ABc-G1-UfS" secondAttribute="trailing" constant="26" id="GpG-2H-mco"/>
+                            <constraint firstItem="tDO-Iy-2O9" firstAttribute="top" secondItem="nTI-5k-ulr" secondAttribute="bottom" constant="36" id="T7U-6a-rKd"/>
+                            <constraint firstItem="ABc-G1-UfS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="ZYs-xJ-htX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ABc-G1-UfS" secondAttribute="bottom" constant="64" id="dGg-1u-YF9"/>
+                            <constraint firstItem="nTI-5k-ulr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="164" id="ePq-lY-Sk1"/>
+                            <constraint firstItem="nTI-5k-ulr" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="kuX-en-LAQ"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -22,4 +49,12 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Back" width="334" height="650"/>
+        <image name="Logo" width="140" height="40"/>
+        <image name="Portal" width="140" height="228"/>
+        <namedColor name="Space">
+            <color red="0.019607843137254902" green="0.047058823529411764" blue="0.11372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

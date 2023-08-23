@@ -8,5 +8,5 @@ target '1221Systems' do
   # Pods for 1221Systems
 pod 'SnapKit'
 pod 'Alamofire'
-
+pod 'R.swift'
 end
