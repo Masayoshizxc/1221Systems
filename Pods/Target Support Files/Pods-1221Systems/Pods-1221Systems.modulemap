@@ -1,0 +1,6 @@
+framework module Pods_1221Systems {
+  umbrella header "Pods-1221Systems-umbrella.h"
+
+  export *
+  module * { export * }
+}
